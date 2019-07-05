@@ -18,16 +18,6 @@ script:
 - make test
 - make vet
 - make website-test
-- make website-githubpages
-
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN 
-  target_branch: gh-pages
-  keep_history: true
-  on:
-    branch: master
 
 matrix:
   fast_finish: true
@@ -36,6 +26,7 @@ matrix:
 
 cache:
   directories:
+  - $GOPATH/src
   - $HOME/.cache/go-build
   - $HOME/gopath/pkg/mod
 
